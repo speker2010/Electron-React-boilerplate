@@ -1,4 +1,5 @@
 const rules = require('./webpack.rules');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 rules.push({
   test: /\.css$/,
@@ -10,4 +11,12 @@ module.exports = {
   module: {
     rules,
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
+  }
 };

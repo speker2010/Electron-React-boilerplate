@@ -27,13 +27,22 @@
  */
 
 import './index.css';
+import vue from "vue";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./app/App.js";
+import App from "./app/app.vue";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 let test = document.querySelector('#test');
 test.innerHTML = 'Test';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+vue.config.productionTip = false
+
+let app = new vue({
+    el: '#root',
+    template: '<App/>',
+    components: { App }
+})
+
+//ReactDOM.render(<App />, document.getElementById("root"));
